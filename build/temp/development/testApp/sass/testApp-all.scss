@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'testApp' );
-$image-search-path: 'D:/dev/extjs/code/testApp/build/development/testApp/resources';
+$image-search-path: 'D:/Dev/extjs/code/testApp/build/development/testApp/resources';
 $theme-name:  dynamic( 'theme-triton' );
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;
@@ -1340,5 +1340,6 @@ $testApp-resource-path: 'images' !default;
 $current-package: false;
 $current-resource-root: $testApp-resource-root;
 $relative-image-path-for-uis: $testApp-resource-path;
+@import '../../../../../sass/src/view/login/Login';
 @import '../../../../../sass/src/view/custom/Custom';
 @import '../../../../../sass/src/view/main/Main';

@@ -39,6 +39,8 @@ Ext.define('testApp.view.login.Login', {
         }],
         buttons: [{
             text: 'Login',
+            scale: 'small',
+            ui: 'testSCSS',
             formBind: true,
             listeners: {
                 click: 'onLoginClick'
