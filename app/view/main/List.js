@@ -4,9 +4,10 @@
 Ext.define('testApp.view.main.List', {
     extend: 'Ext.grid.Panel',
     xtype: 'mainlist',
-
+    plugins: ['gridsearch'],
     requires: [
-        'testApp.store.Personnel'
+        'testApp.store.Personnel',
+        'testApp.plugin.GridSearch'
     ],
 
     title: 'Personnel',
@@ -15,11 +16,11 @@ Ext.define('testApp.view.main.List', {
     //     type: 'personnel'
     // },
 
-    bind : {
-        store : '{personnel}'
+    bind: {
+        store: '{personnel}'
     },
     columns: [
-        { text: 'Name',  dataIndex: 'first_name' },
+        { text: 'Name', dataIndex: 'first_name' },
         { text: 'Email', dataIndex: 'last_name', flex: 1 },
         { text: 'Phone', dataIndex: 'job_title', flex: 1 }
     ],
@@ -27,4 +28,21 @@ Ext.define('testApp.view.main.List', {
     listeners: {
         select: 'onItemSelected'
     }
+
+    // ,
+    // dockedItems: [{
+    //     xtype: 'toolbar',
+    //     dock: 'bottom',
+    //     ui: 'footer',
+    //     layout: {
+    //         pack: 'center'
+    //     },
+    //     items: [{
+    //         minWidth: 80,
+    //         text: 'Save'
+    //     }, {
+    //         minWidth: 80,
+    //         text: 'Cancel'
+    //     }]
+    // }]
 });
