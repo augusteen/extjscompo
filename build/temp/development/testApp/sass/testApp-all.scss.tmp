@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'testApp' );
-$image-search-path: 'D:/Dev/extjs/code/testApp/build/development/testApp/resources';
+$image-search-path: 'D:/dev/extjs/code/testApp/build/development/testApp/resources';
 $theme-name:  dynamic( 'theme-triton' );
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;
@@ -877,6 +877,7 @@ $include-ext-window-toast: dynamic(true);;
 $include-ext-window-window: dynamic(true);;
 $include-testapp-application: dynamic(true);;
 $include-testapp-controller-root: dynamic(true);;
+$include-testapp-plugin-gridsearch: dynamic(true);;
 $include-testapp-store-personnel: dynamic(true);;
 $include-testapp-view-custom-custom: dynamic(true);;
 $include-testapp-view-login-login: dynamic(true);;

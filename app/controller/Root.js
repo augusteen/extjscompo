@@ -12,5 +12,7 @@ Ext.define('testApp.controller.Root', {
 
     init : function(){
     	console.log('Root controller initiated');
+    	Ext.Ajax.useDefaultXhrHeader = false;
+    	Ext.Ajax.cors = true
     }
 });

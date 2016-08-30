@@ -1,2 +1,2 @@
 // @tag full-page
-// @require D:\Dev\extjs\code\testApp\app.js
+// @require D:\dev\extjs\code\testApp\app.js

@@ -18,19 +18,24 @@ Ext.define('testApp.view.main.MainModel', {
         personnel: {
             autoLoad: true,
             proxy: {
-                type: 'ajax',
-                useDefaultXhrHeader : false,
+                type: 'rest',
+                useDefaultXhrHeader: false,
                 method: 'GET',
                 // withCredentials : true,
                 //actionMethods: { create: 'POST', read: 'GET', update: 'POST', destroy: 'POST' },
                 api: {
                     read: 'http://localhost:3000/api/employee',
+                    create: 'http://localhost:3000/api/employee',
+                    update: 'http://localhost:3000/api/employee'
                 },
                 headers: {
                     'Content-Type': "application/json",
                     'Authorization': "Bearer {token}"
                 },
                 reader: {
+                    type: 'json'
+                },
+                writer: {
                     type: 'json'
                 }
             }

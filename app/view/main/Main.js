@@ -22,7 +22,7 @@ Ext.define('testApp.view.main.Main', {
     controller: 'main',
     viewModel: 'main',
 
-    ui: 'navigation',
+    ui: 'navigation', 
 
     tabBarHeaderPosition: 1,
     titleRotation: 0,
@@ -86,21 +86,21 @@ Ext.define('testApp.view.main.Main', {
     }, {
         title: 'Users',
         iconCls: 'fa-user',
-        items : [{
-            xtype : 'custom',
-            routes : [{ bread: 'Home 2',route: 'home' },{ bread: 'Library 2',route:'library'}],
-            listeners  : {
-                afterRender : function(){
-                    console.log(this.routes);
-                },
-                routeclicked : function(e,text){
-                    console.log('clicked '+ text);
+        items: [{
+                xtype: 'custom',
+                routes: [{ bread: 'Home 2', route: 'home' }, { bread: 'Library 2', route: 'library' }],
+                listeners: {
+                    afterRender: function() {
+                        console.log(this.routes);
+                    },
+                    routeclicked: function(e, text) {
+                        console.log('clicked ' + text);
+                    }
                 }
-            }
-        }]
-        // bind: {
-        //     html: '{loremIpsum}'
-        // }
+            }]
+            // bind: {
+            //     html: '{loremIpsum}'
+            // }
     }, {
         title: 'Groups',
         iconCls: 'fa-users',
@@ -108,10 +108,17 @@ Ext.define('testApp.view.main.Main', {
             html: '{loremIpsum}'
         }
     }, {
-        title: 'Settings',
-        iconCls: 'fa-cog',
-        bind: {
-            html: '{loremIpsum}'
-        }
+        title: 'Google',
+        iconCls: 'fa-adjust',
+        items: [{
+            xtype: 'component',
+            itemId: 'my_iframe',
+            autoScroll: true,
+            autoEl: {
+                tag: 'iframe',
+                style: 'height: 100%; width: 100%;',
+                src: 'http://www.google.co.in&output=embed'
+            }
+        }]
     }]
 });
