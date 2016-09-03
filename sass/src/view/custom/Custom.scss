@@ -1,0 +1,32 @@
+.green-box { 
+    background-color: #fec; 
+    border: 2px solid #5a7; 
+    border-radius: 5px; 
+    box-shadow: 2px 2px 2px #bbb; 
+    padding: 5px; 
+}
+
+.breadcrumb {
+    padding: 8px 15px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+.breadcrumb > li {
+    display: inline-block;
+}
+
+ol, ul {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+a {
+    color: #337ab7;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+}
