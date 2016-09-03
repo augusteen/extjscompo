@@ -31,5 +31,10 @@ Ext.define('testApp.view.main.MainController', {
         var token = localStorage.getItem('user-token');
         // console.log(token);
         this.getViewModel().set('token', token);
+    },
+    //TODO - add data, formulas and/or methods to support your view
+    onLogOut: function(){
+        localStorage.removeItem('user-token');
+        window.location.reload();
     }
 });

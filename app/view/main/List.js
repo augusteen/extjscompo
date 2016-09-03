@@ -65,7 +65,7 @@ Ext.define('testApp.view.main.List', {
             handler: function(){
                 // console.log(this.getPersonnel());
                 var str = this.up('gridpanel').getStore();
-                str.insert(0,0)
+                str.insert(0,{});
             }
         }]
     }]

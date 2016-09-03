@@ -16,7 +16,8 @@ Ext.define('testApp.view.main.Main', {
         'testApp.view.main.MainController',
         'testApp.view.main.MainModel',
         'testApp.view.main.List',
-        'testApp.view.custom.Custom'
+        'testApp.view.custom.Custom',
+        'testApp.view.layout.Layout'
     ],
 
     controller: 'main',
@@ -102,11 +103,14 @@ Ext.define('testApp.view.main.Main', {
             //     html: '{loremIpsum}'
             // }
     }, {
-        title: 'Groups',
+        title: 'Layout',
         iconCls: 'fa-users',
-        bind: {
-            html: '{loremIpsum}'
-        }
+        layout: 'fit',
+        items:[
+            {
+             xtype: 'layout'
+            }
+        ]
     }, {
         title: 'Google',
         iconCls: 'fa-adjust',
@@ -120,5 +124,14 @@ Ext.define('testApp.view.main.Main', {
                 src: 'http://www.google.co.in&output=embed'
             }
         }]
-    }]
+    }],
+
+    tbar:['->',{ xtype: 'button',
+        id: 'logout',
+        iconCls: 'x-fa fa-sign-out',
+        listeners: {
+            click: 'onLogOut'
+        }
+    }
+    ]
 });

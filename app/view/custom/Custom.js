@@ -36,7 +36,7 @@ Ext.define('testApp.view.custom.Custom', {
             // this.callParent(arguments);
             // 
             this.mon(this.el, { scope: this, click: this.handleEvent });
-        },
+        }
     },
 
     /**
