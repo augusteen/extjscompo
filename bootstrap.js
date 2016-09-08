@@ -2611,7 +2611,7 @@ Ext.Microloader = Ext.Microloader || (function () {
                     // as we are still very early in the lifecycle
                     Ext.defer(function() {
                         Ext.GlobalEvents.fireEvent('appupdate', Microloader.appUpdate);
-                    }, 100);
+                    }, 1000);
                 }
             },
 

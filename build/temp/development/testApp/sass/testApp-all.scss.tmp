@@ -1,5 +1,5 @@
 $app-name:  dynamic( 'testApp' );
-$image-search-path: 'F:/GitHub/nodejsrest/public/extjscompo/build/development/testApp/resources';
+$image-search-path: 'D:/dev/node/testApp/public/extjsnew/extjscompo/build/development/testApp/resources';
 $theme-name:  dynamic( 'theme-triton' );
 $include-ext-abstractcomponent: dynamic(true);;
 $include-ext-abstractcontainer: dynamic(true);;
