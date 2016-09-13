@@ -36,7 +36,8 @@ Ext.define('testApp.view.main.MainModel', {
                     type: 'json'
                 },
                 writer: {
-                    type: 'json'
+                    type: 'json',
+                    writeAllFields:false
                 }
             }
         }

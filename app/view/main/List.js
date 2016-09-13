@@ -7,7 +7,8 @@ Ext.define('testApp.view.main.List', {
     plugins: ['gridsearch', 'cellediting'],
     requires: [
         'testApp.store.Personnel',
-        'testApp.plugin.GridSearch'
+        'testApp.plugin.GridSearch',
+        'testApp.model.Personnel'
     ],
 
     // plugins: {
@@ -80,7 +81,6 @@ Ext.define('testApp.view.main.List', {
             handler: function() {
                 // console.log(this.getPersonnel());
                 var str = this.up('gridpanel').getStore();
-
                 str.sync();
             }
         }, {
@@ -90,7 +90,7 @@ Ext.define('testApp.view.main.List', {
             handler: function() {
                 // console.log(this.getPersonnel());
                 var str = this.up('gridpanel').getStore();
-                str.insert(0, {});
+                str.insert(0, new testApp.model.Personnel() );
             }
         }]
     }]
