@@ -17,7 +17,8 @@ Ext.define('testApp.view.main.Main', {
         'testApp.view.main.MainModel',
         'testApp.view.main.List',
         'testApp.view.custom.Custom',
-        'testApp.view.layout.Layout'
+        'testApp.view.layout.Layout',
+        'testApp.view.extend.Scope'
     ],
 
     controller: 'main',
@@ -115,14 +116,10 @@ Ext.define('testApp.view.main.Main', {
         title: 'Google',
         iconCls: 'fa-adjust',
         items: [{
-            xtype: 'component',
-            itemId: 'my_iframe',
-            autoScroll: true,
-            autoEl: {
-                tag: 'iframe',
-                style: 'height: 100%; width: 100%;',
-                src: 'http://www.google.co.in&output=embed'
-            }
+            xtype: 'scope',
+            testProperty: 'test',
+            name:'Augusteen'
+           
         }]
     }],
 
