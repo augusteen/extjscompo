@@ -9,7 +9,7 @@ Ext.define('testApp.view.extend.Scope', {
     mixins:{
     	mix:'testApp.view.extend.Mix'
     },
-    html: 'Hello how are you',
+    // html: 'Hello how are you',
     /**
      * @method initComponent
      * @inheritdoc
@@ -19,14 +19,15 @@ Ext.define('testApp.view.extend.Scope', {
         //this.debug(arguments);
 
         var me = this;
-        console.log('scope constr');
-        console.log(me.getName());
-        console.log(me.testFunction());
+        // console.log('scope constr');
+         me.config.items[0].items[1].items[0] = me.config.adminViewConfig;
+        // console.log(me.getName());
+        // console.log(me.testFunction());
         this.callParent(arguments);
     },
 
     getName: function(){
-    	console.log('Overridedn' + this.name);
+    	// console.log('Overridedn' + this.name);
     	this.mixins.mix.getName.call(this);
     },
     testFunction: function() {
