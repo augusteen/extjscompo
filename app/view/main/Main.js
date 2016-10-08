@@ -118,21 +118,23 @@ Ext.define('testApp.view.main.Main', {
             xtype: 'scope',
             testProperty: 'test',
             name: 'Augusteen',
-            adminViewConfig: {
-                xtype: 'combobox',
-                width: 150,
-                queryMode: 'local',
-                valueField: 'abbr',
-                displayField: 'name',
-                plugins:['combowrap'],
-                store: Ext.create('Ext.data.Store', {
-                    fields: ['abbr', 'name'],
-                    data: [
-                        { "abbr": "AL", "name": "Alabama Alabama" },
-                        { "abbr": "AK", "name": "Alaska Alabama" },
-                        { "abbr": "AZ", "name": "Arizona Alabama" }
-                    ]
-                })
+            templateConfig: {
+                adminViewConfig: [{
+                    xtype: 'combobox',
+                    width: 150,
+                    queryMode: 'local',
+                    valueField: 'abbr',
+                    displayField: 'name',
+                    plugins: ['combowrap'],
+                    store: Ext.create('Ext.data.Store', {
+                        fields: ['abbr', 'name'],
+                        data: [
+                            { "abbr": "AL", "name": "Alabama Alabama" },
+                            { "abbr": "AK", "name": "Alaska Alabama" },
+                            { "abbr": "AZ", "name": "Arizona Alabama" }
+                        ]
+                    })
+                }]
             }
 
         }]
