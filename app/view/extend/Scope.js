@@ -19,15 +19,17 @@ Ext.define('testApp.view.extend.Scope', {
         //this.debug(arguments);
 
         var me = this;
-        debugger;
+        // debugger;
         // var vm = me.getViewModel();
 
         // vm.set('admin',me.config.admin);
         // console.log(me);
         // var adminView = me.config.adminViewConfig;
         // me.config.items[0].items[1].items = me.config.adminViewConfig;
-        // console.log(me.getName());
-        // console.log(me.testFunction());
+        
+        if (me.config.templateConfig) {
+            this.updateTemplateConfig(me.config.items, me.config.templateConfig);
+        }
         this.callParent(arguments);
     },
 
@@ -36,96 +38,95 @@ Ext.define('testApp.view.extend.Scope', {
         this.mixins.mix.getName.call(this);
     },
     updateTemplateConfig: function(item, templateConfig) {
-
+        // debugger;
         // console.log('testFunction');
-        Ext.iterate(templateConfig, this.applyTemplateConfig(item, key, value));
+        for (iter in templateConfig) {
+            this.applyTemplateConfig(item, iter, templateConfig[iter]);
+        }
     },
     applyTemplateConfig: function(object, key, value) {
 
-        if (object.itemId = key) {
-            object.items = value;
-        } else {
-            if (object.hasOwnProperty("items")) {
-                for (object.items in obj) {
-                    this.applyTemplateConfig(obj,key,value);
+        if (object.itemId || object.items || Ext.isArray(object)) {
+            if (object.itemId == key) {
+                object.items = value;
+            } else {
+                var newobject;
+
+                if (Ext.isArray(object))
+                    newobject = object;
+                else
+                    newobject = object.items;
+
+                for (obj in object) {
+                    this.applyTemplateConfig(object[obj], key, value);
                 }
+
+                // Ext.iterate(object.items, this.applyTemplateConfig(item,));
             }
-            // Ext.iterate(object.items, this.applyTemplateConfig(item,));
         }
-    }
-},
-viewModel: {
-    admin: null
-},
-config: {
-    admin: null,
-    adminViewConfig: null,
-    buttonConfig: null,
-    gridId: null,
-    items: [{
-        "xtype": "container",
-        "cls": "clsExpandCollapsePanel clsSourceScopeSelectionPanel",
-        "layout": "anchor",
-        "referenceHolder": true,
-        "items": [{
+    },
+    viewModel: {
+        admin: null
+    },
+    config: {
+        admin: null,
+        adminViewConfig: null,
+        buttonConfig: null,
+        gridId: null,
+        items: [{
             "xtype": "container",
-            "id": "cntAdminUIScope",
-            "margin": "0 0 0 10",
-            "layout": {
-                "type": "hbox",
-                "align": "stretch"
-            },
-            items: [{
-                "xtype": "button",
-                "reference": "btnAdminUIScopeExpander",
-                "cls": "clsexpandcollapsebutton MPC-Scope-expander",
-                // "id": "btnAdminUIScopeExpander",
-                "margin": "0 0 0 0",
-                "enableToggle": true,
-                "glyph": 72,
-                "iconAlign": "top",
-                "pressed": true,
-                listeners: {
-                    click: function(button, e, Opts) {
-                        getAdminUIController().onBtnScopeExpanderClick(button, e, eOpts);
-                    }
-                }
-            }, {
-                "xtype": "label",
-                "cls": "clsExpandCollapsePanelLabel clsSourceScopeSelection",
-                "margin": "0 0 0 10",
-                "text": "SCOPE"
-            }, {
+            "cls": "clsExpandCollapsePanel clsSourceScopeSelectionPanel",
+            "layout": "anchor",
+            "referenceHolder": true,
+            "items": [{
                 "xtype": "container",
-                "flex": 1,
-                "reference": "cntAdminUIScopeDetails",
-                // "id": "cntAdminUIScopeDetails",
-                "referenceHolder": true,
+                "id": "cntAdminUIScope",
+                "margin": "0 0 0 10",
                 "layout": {
                     "type": "hbox",
                     "align": "stretch"
                 },
-                "items": [{
+                items: [{
+                    "xtype": "button",
+                    "reference": "btnAdminUIScopeExpander",
+                    "cls": "clsexpandcollapsebutton MPC-Scope-expander",
+                    // "id": "btnAdminUIScopeExpander",
+                    "margin": "0 0 0 0",
+                    "enableToggle": true,
+                    "glyph": 72,
+                    "iconAlign": "top",
+                    "pressed": true,
+                    listeners: {
+                        click: function(button, e, Opts) {
+                            getAdminUIController().onBtnScopeExpanderClick(button, e, eOpts);
+                        }
+                    }
+                }, {
                     "xtype": "label",
-                    "reference": "lblAdminUIScope",
-                    "cls": "clsScopeDetailsLabel clslblEllipsis",
-                    // "id": "lblAdminUIScope",
-                    "margin": "0 0 0 10"
-                }]
-            }, {
-                "xtype": "container",
-                "reference": "cntAdminUIOperation",
-                // "id": "cntAdminUIOperation",
-                "referenceHolder": true,
-                "layout": {
-                    "type": "hbox",
-                    "align": "stretch",
-                    "pack": "end"
-                },
-                "items": [{
+                    "cls": "clsExpandCollapsePanelLabel clsSourceScopeSelection",
+                    "margin": "0 0 0 10",
+                    "text": "SCOPE"
+                }, {
                     "xtype": "container",
-                    "reference": "cntAdminCommonOperation",
-                    // "id": "cntAdminCommonOperation",
+                    "flex": 1,
+                    "reference": "cntAdminUIScopeDetails",
+                    // "id": "cntAdminUIScopeDetails",
+                    "referenceHolder": true,
+                    "layout": {
+                        "type": "hbox",
+                        "align": "stretch"
+                    },
+                    "items": [{
+                        "xtype": "label",
+                        "reference": "lblAdminUIScope",
+                        "cls": "clsScopeDetailsLabel clslblEllipsis",
+                        // "id": "lblAdminUIScope",
+                        "margin": "0 0 0 10"
+                    }]
+                }, {
+                    "xtype": "container",
+                    "reference": "cntAdminUIOperation",
+                    // "id": "cntAdminUIOperation",
                     "referenceHolder": true,
                     "layout": {
                         "type": "hbox",
@@ -134,61 +135,72 @@ config: {
                     },
                     "items": [{
                         "xtype": "container",
-                        items: [{
-                            itemid: 'id_ScopeButtons'
+                        "reference": "cntAdminCommonOperation",
+                        // "id": "cntAdminCommonOperation",
+                        "referenceHolder": true,
+                        "layout": {
+                            "type": "hbox",
+                            "align": "stretch",
+                            "pack": "end"
+                        },
+                        "items": [{
+                            "xtype": "container",
+                            items: [{
+                                itemid: 'id_ScopeButtons'
+                            }]
+                        }, {
+                            "xtype": "button",
+                            "reference": "btnAdminUIAdd",
+                            "cls": "custom-act-btn create clsAdminOperation",
+                            // "id": "btnAdminUIAdd",
+                            "margin": "0 10 0 0",
+                            "glyph": 72,
+                            "tooltip": "Add"
+                        }, {
+                            "xtype": "button",
+                            "reference": "btnAdminUISave",
+                            "cls": "clsPPOperationButton clsPPOperation5",
+                            // "id": "btnAdminUISave",
+                            "margin": "0 10 0 0",
+                            "glyph": 72,
+                            "tooltip": "Save"
+                        }, {
+                            "xtype": "button",
+                            "reference": "btnAdminUIDelete",
+                            "cls": "clsPPOperationButton clsPPOperation1",
+                            // "id": "btnAdminUIDelete",
+                            "margin": "0 10 0 0",
+                            "glyph": 72,
+                            "tooltip": "Delete"
+                        }, {
+                            "xtype": "button",
+                            "reference": "btnAdminUIClearAllFilter",
+                            "cls": "custom-act-btn filterMyTask clsAdminOperation",
+                            // "id": "btnAdminUIClearAllFilter",
+                            "margin": "0 10 0 0",
+                            "glyph": 72,
+                            "tooltip": "Clear All Filters"
+                        }, {
+                            "xtype": "button",
+                            "reference": "btnAdminUICloseWindow",
+                            "cls": "CloseAdminBtn clsAdminOperation",
+                            // "id": "btnAdminUICloseWindow",
+                            "margin": "0 10 0 0",
+                            "glyph": 72,
+                            "tooltip": "Close"
                         }]
-                    }, {
-                        "xtype": "button",
-                        "reference": "btnAdminUIAdd",
-                        "cls": "custom-act-btn create clsAdminOperation",
-                        // "id": "btnAdminUIAdd",
-                        "margin": "0 10 0 0",
-                        "glyph": 72,
-                        "tooltip": "Add"
-                    }, {
-                        "xtype": "button",
-                        "reference": "btnAdminUISave",
-                        "cls": "clsPPOperationButton clsPPOperation5",
-                        // "id": "btnAdminUISave",
-                        "margin": "0 10 0 0",
-                        "glyph": 72,
-                        "tooltip": "Save"
-                    }, {
-                        "xtype": "button",
-                        "reference": "btnAdminUIDelete",
-                        "cls": "clsPPOperationButton clsPPOperation1",
-                        // "id": "btnAdminUIDelete",
-                        "margin": "0 10 0 0",
-                        "glyph": 72,
-                        "tooltip": "Delete"
-                    }, {
-                        "xtype": "button",
-                        "reference": "btnAdminUIClearAllFilter",
-                        "cls": "custom-act-btn filterMyTask clsAdminOperation",
-                        // "id": "btnAdminUIClearAllFilter",
-                        "margin": "0 10 0 0",
-                        "glyph": 72,
-                        "tooltip": "Clear All Filters"
-                    }, {
-                        "xtype": "button",
-                        "reference": "btnAdminUICloseWindow",
-                        "cls": "CloseAdminBtn clsAdminOperation",
-                        // "id": "btnAdminUICloseWindow",
-                        "margin": "0 10 0 0",
-                        "glyph": 72,
-                        "tooltip": "Close"
                     }]
                 }]
+            }, {
+                "xtype": "container",
+                itemId: "adminViewConfig"
+                    // "items": adminViewConfig
             }]
         }, {
             "xtype": "container",
-            itemid: "adminViewConfig"
-                // "items": adminViewConfig
+            "id": "cntAdminUIGrid",
+            "layout": "fit",
+            "itemId":"adminViewConfig2"
         }]
-    }, {
-        "xtype": "container",
-        "id": "cntAdminUIGrid",
-        "layout": "fit"
-    }]
-}
+    }
 });

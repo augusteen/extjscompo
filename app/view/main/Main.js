@@ -134,6 +134,22 @@ Ext.define('testApp.view.main.Main', {
                             { "abbr": "AZ", "name": "Arizona Alabama" }
                         ]
                     })
+                }],
+               adminViewConfig2: [{
+                    xtype: 'combobox',
+                    width: 150,
+                    queryMode: 'local',
+                    valueField: 'abbr',
+                    displayField: 'name',
+                    plugins: ['combowrap'],
+                    store: Ext.create('Ext.data.Store', {
+                        fields: ['abbr', 'name'],
+                        data: [
+                            { "abbr": "AL", "name": "Alabama Alabama" },
+                            { "abbr": "AK", "name": "Alaska Alabama" },
+                            { "abbr": "AZ", "name": "Arizona Alabama" }
+                        ]
+                    })
                 }]
             }
 
