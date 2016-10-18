@@ -23,6 +23,10 @@ Ext.define('testApp.view.main.MainController', {
         }
     },
 
+    onComboListSelected: function(combo, records, eOpts) {
+
+    },
+
     getTokenfromLocalStorage: function() {
         Ext.Ajax.useDefaultXhrHeader = false;
 

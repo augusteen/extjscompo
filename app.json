@@ -283,6 +283,9 @@
             "path": "${build.out.css.path}",
             "bundle": true,
             "exclude": ["fashion"]
+        },
+        {
+            "path":"resources/VistaarSolution-all.css"
         }
     ],
 

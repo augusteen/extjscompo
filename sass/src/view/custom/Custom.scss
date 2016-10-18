@@ -1,9 +1,9 @@
-.green-box { 
-    background-color: #fec; 
-    border: 2px solid #5a7; 
-    border-radius: 5px; 
-    box-shadow: 2px 2px 2px #bbb; 
-    padding: 5px; 
+.green-box {
+    background-color: #fec;
+    border: 2px solid #5a7;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #bbb;
+    padding: 5px;
 }
 
 .breadcrumb {
@@ -18,7 +18,8 @@
     display: inline-block;
 }
 
-ol, ul {
+ol,
+ul {
     margin-top: 0;
     margin-bottom: 10px;
 }
@@ -27,6 +28,20 @@ a {
     color: #337ab7;
     text-decoration: none;
 }
+
 a {
     background-color: transparent;
+}
+
+.clsDealLabel {
+    color: #5c6772;
+    display: block;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    line-height: 38px;
+    /* text-transform: uppercase; */
+    left: 24px!important;
+    width: auto;
 }
