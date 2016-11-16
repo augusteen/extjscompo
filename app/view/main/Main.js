@@ -18,6 +18,7 @@ Ext.define('testApp.view.main.Main', {
         'testApp.view.main.List',
         'testApp.view.custom.Custom',
         'testApp.view.layout.Layout',
+        'testApp.view.preference.Preference',
         'testApp.view.extend.Scope',
         'testApp.plugin.Combo'
     ],
@@ -112,6 +113,13 @@ Ext.define('testApp.view.main.Main', {
             xtype: 'layout'
         }]
     }, {
+        title: 'Layout',
+        iconCls: 'fa-users',
+        layout: 'fit',
+        items: [{
+            xtype: 'menuBtn'
+        }]
+    }, {
         title: 'Google',
         iconCls: 'fa-adjust',
         items: [{
@@ -135,7 +143,7 @@ Ext.define('testApp.view.main.Main', {
                         ]
                     })
                 }],
-               adminViewConfig2: [{
+                adminViewConfig2: [{
                     xtype: 'combobox',
                     width: 150,
                     queryMode: 'local',
