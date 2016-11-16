@@ -137,12 +137,22 @@ Ext.define('testApp.view.main.Main', {
             }
 
         }, {
+            "xtype": 'textfield',
+            "fieldLabel": 'Low',
+            "cls": "clsImpactAnalysisTextBox",
+            "labelAlign": 'top',
+            "labelSeparator": '',
+            "maskRe": /[\d\.%]/,
+            "width": 150,
+            "name": "Threshold_1_Value",
+            "id": "txtValue"
+        }, {
             xtype: 'combobox',
             "id": "cmbTMStateMarket",
             "fieldLabel": "Geography",
             // "store": storeTMStateMarketLevel,
             "displayField": "Name",
-            "multiSelect":true,
+            "multiSelect": true,
             "valueField": "Code",
             "listConfig": {
                 "cls": "clsMassPriceChangeComboList clsPPComboDropDown clsPricePlanPricingGroupComboDropDown clsAdminLargeCombo",
@@ -158,7 +168,7 @@ Ext.define('testApp.view.main.Main', {
             },
             Width: 120,
             store: Ext.create('Ext.data.Store', {
-                fields:['Name','Code','LevelCode'],
+                fields: ['Name', 'Code', 'LevelCode'],
                 data: [{
                     "Name": "Alabama",
                     "Code": "S4",
